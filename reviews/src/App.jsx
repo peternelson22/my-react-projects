@@ -6,29 +6,30 @@ function App() {
   const [index, setIndex] = useState(0);
   const { name, job, text, image } = people[index];
 
-  const currentIndex = (id) => {
-    if (id > people.length - 1) {
-      return 0;
-    }
-    if (id < 0) {
-      return people.length - 1;
-    }
-    return id;
-  };
+  // A way to go about it - call the function in each of the events
+  // const currentIndex = (id) => {
+  //   if (id > people.length - 1) {
+  //     return 0;
+  //   }
+  //   if (id < 0) {
+  //     return people.length - 1;
+  //   }
+  //   return id;
+  // };
 
   const handleRandomPerson = () => {
     let randomPerson = Math.floor(Math.random() * people.length);
     if (index === randomPerson) {
       randomPerson = index + 1;
     }
-    setIndex(currentIndex(randomPerson));
+    setIndex(randomPerson % people.length);
   };
 
   const handleLeftClick = () => {
-    setIndex((index) => currentIndex(index - 1));
+    setIndex((index) => (index - 1 + people.length) % people.length);
   };
   const handleRightClick = () => {
-    setIndex((index) => currentIndex(index + 1));
+    setIndex((index) => (index + 1) % people.length);
   };
   return (
     <main>
