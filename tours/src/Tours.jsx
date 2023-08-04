@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Tour from './Tour';
 
 const Tours = ({ tours, removeTour }) => {

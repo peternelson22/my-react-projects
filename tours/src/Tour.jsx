@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
 const Tour = ({ id, name, info, price, image, removeTour }) => {
   const [readMore, setReadMore] = useState(false);
 
@@ -15,7 +13,7 @@ const Tour = ({ id, name, info, price, image, removeTour }) => {
         <p>
           {readMore ? info : `${info.substring(0, 200)}...`}
           <button className='info-btn' onClick={() => setReadMore(!readMore)}>
-            {readMore ? 'show less' : '  read more'}
+            {readMore ? 'show less' : 'read more'}
           </button>
         </p>
         <button
